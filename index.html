@@ -169,6 +169,29 @@
             height: 150px;
         }
 
+        .form-status {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-status.success {
+            display: block;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-status.error {
+            display: block;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
         footer {
             background-color: var(--primary-color);
             color: var(--white);
@@ -194,7 +217,6 @@
     <section id="home" class="hero">
         <h1>Elevate Your Digital Presence</h1>
         <p>Providing high-impact digital marketing campaigns, content creation, and professional media production services.</p>
-        <!-- The button below jumps straight to the contact form via href="#contact" -->
         <a href="#contact" class="btn">Contact Us</a>
     </section>
 
@@ -219,7 +241,7 @@
     <section id="contact">
         <h2>Get in Touch</h2>
         <div class="contact-form">
-            <form action="https://formspree.io/f/mwlpjalp" method="POST">
+            <form id="contactForm" action="https://formspree.io/f/mwlpjalp" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required placeholder="Your Name">
@@ -232,8 +254,9 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                <button type="submit" id="submitBtn" class="btn" style="width: 100%;">Send Message</button>
             </form>
+            <div id="formStatus" class="form-status"></div>
         </div>
     </section>
 
@@ -241,5 +264,49 @@
         <p>&copy; 2026 ADEVA Production House L.C. All rights reserved.</p>
     </footer>
 
+    <script>
+        var form = document.getElementById("contactForm");
+        
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("formStatus");
+            var submitBtn = document.getElementById("submitBtn");
+            var data = new FormData(event.target);
+            
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.className = "form-status success";
+                    status.innerHTML = "Thank you! Your message has been sent successfully.";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        status.className = "form-status error";
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oops! There was a problem submitting your form.";
+                        }
+                    })
+                }
+            }).catch(error => {
+                status.className = "form-status error";
+                status.innerHTML = "Oops! There was a problem submitting your form.";
+            }).finally(() => {
+                submitBtn.textContent = "Send Message";
+                submitBtn.disabled = false;
+            });
+        }
+        
+        form.addEventListener("submit", handleSubmit);
+    </script>
 </body>
 </html>
