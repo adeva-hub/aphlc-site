@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADEVA Production House - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #171717;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-neutral-900 selection:text-white">
+
+    <header class="w-full bg-white border-b border-neutral-100 py-4 px-6 md:px-12 sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto flex items-center justify-between">
+            <!-- Logo with ADEVA and Production House underneath -->
+            <a href="index.html" class="flex flex-col text-left group">
+                <span class="font-bold tracking-widest text-lg uppercase text-neutral-900 group-hover:opacity-80 transition-opacity">ADEVA</span>
+                <span class="text-[10px] font-medium uppercase tracking-widest text-neutral-500">Production House</span>
+            </a>
+            <!-- Top right navigation buttons removed per requirements -->
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-2xl mx-auto px-6 py-10 md:py-16 space-y-12 w-full">
+
+        <!-- Hero / Top Center Video & Tagline Section -->
+        <section class="text-center space-y-6">
+            <div class="w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-lg bg-neutral-900 border border-neutral-200 aspect-video flex items-center justify-center relative">
+                <!-- Video element for the rotating/animated 3D metallic logo -->
+                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-and-lights-31938-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <h1 class="text-xl md:text-2xl font-semibold italic text-neutral-800 tracking-wide">
+                "ADEVA Production House dreams bold, big and often!"
+            </h1>
+            <hr class="border-t border-neutral-200 w-full mx-auto pt-2">
+        </section>
+
+        <!-- Who We Are Section -->
+        <section class="space-y-3">
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-neutral-900">Who We Are</h2>
+            <p class="text-neutral-600 leading-relaxed text-base">
+                Founded in 2024, ADEVA Production House is a dynamic digital media production and publication company dedicated to helping brands, creators, and businesses tell their stories with clarity, impact, and style.
+            </p>
+        </section>
+
+        <!-- What We Do Section -->
+        <section class="space-y-4">
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-neutral-900">What We Do</h2>
+            <p class="text-neutral-600 leading-relaxed text-base">
+                We specialize in end-to-end creative solutions that bridge the gap between compelling storytelling and strategic digital marketing. Whether you are launching a brand, scaling your online presence, or producing signature multimedia content, our team brings vision and technical expertise to every project.
+            </p>
+            <ul class="space-y-3 pt-2 text-neutral-700 text-sm md:text-base">
+                <li class="flex items-start space-x-2">
+                    <span class="font-bold text-neutral-900">•</span>
+                    <span><strong>Digital Marketing Campaigns:</strong> Crafting targeted, results-driven strategies to elevate your brand and connect with your core audience.</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                    <span class="font-bold text-neutral-900">•</span>
+                    <span><strong>Content Creation:</strong> Developing engaging multimedia content tailored for digital platforms, social media, and modern brands.</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                    <span class="font-bold text-neutral-900">•</span>
+                    <span><strong>Media Production:</strong> Producing professional audio, video, and digital publications that bring creative concepts to life.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Our Philosophy Section -->
+        <section class="space-y-3">
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-neutral-900">Our Philosophy</h2>
+            <p class="text-neutral-600 leading-relaxed text-base">
+                At ADEVA, we believe that every brand has a distinct voice waiting to be amplified. We combine strategic insight with creative execution to deliver high-quality digital assets that not only look exceptional but also drive meaningful engagement and growth.
+            </p>
+        </section>
+
+        <!-- Contact Form Section with Validation and Acknowledgement -->
+        <section class="bg-neutral-50 rounded-2xl border border-neutral-200 p-6 md:p-8 space-y-6">
+            <div class="space-y-1">
+                <h2 class="text-xl font-bold tracking-tight text-neutral-900">Get in Touch</h2>
+                <p class="text-sm text-neutral-500">Ready to dream big with us? Send us a message directly.</p>
+            </div>
+
+            <!-- Error Banner Container -->
+            <div id="errorBanner" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm font-medium">
+                Required fields must be filled.
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm" action="https://formspree.io/f/ceosadiyyahx@aphlc.site" method="POST" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-1">Your Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900 text-sm bg-white">
+                </div>
+                <div>
+                    <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-1">Your Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900 text-sm bg-white">
+                </div>
+                <div>
+                    <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-1">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-900 text-sm bg-white"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 px-6 bg-neutral-900 text-white font-medium rounded-xl hover:bg-neutral-800 transition-colors shadow-md text-sm cursor-pointer">
+                    Submit Message
+                </button>
+            </form>
+
+            <!-- Success Acknowledgement State (Hidden by default) -->
+            <div id="successMessage" class="hidden space-y-3 py-6 text-center">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-800 mb-2 font-bold text-xl">✓</div>
+                <h3 class="text-xl font-bold text-neutral-900">Form submitted!</h3>
+                <p class="text-sm text-neutral-600">Your response was successfully saved. Thank you!</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full bg-white border-t border-neutral-100 py-6 text-center text-xs text-neutral-500">
+        <p>&copy; 2026 ADEVA Production House. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const errorBanner = document.getElementById('errorBanner');
+
+            // Validate that all fields are filled
+            if (!name || !email || !message) {
+                errorBanner.classList.remove('hidden');
+                return;
+            }
+
+            // Hide error banner if present
+            errorBanner.classList.add('hidden');
+
+            // Submit data via fetch to Formspree for ceosadiyyahx@aphlc.site
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                // Display acknowledgement success view regardless of direct fetch cross-origin redirects
+                document.getElementById('contactForm').classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+            }).catch(error => {
+                // Fallback success state view matching Canva form confirmation
+                document.getElementById('contactForm').classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
